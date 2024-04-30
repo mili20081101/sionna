@@ -145,9 +145,9 @@ class SceneObject(Object):
         rdtype = self._scene.dtype.real_dtype
         # Bounding box
         # [3]
-        bbox_min = mi_to_tf_tensor(self._mi_shape.bbox().min, rdtype)
+        bbox_min = tf.cast(self._mi_shape.bbox().min, rdtype)
         # [3]
-        bbox_max = mi_to_tf_tensor(self._mi_shape.bbox().max, rdtype)
+        bbox_max = tf.cast(self._mi_shape.bbox().max, rdtype)
         # [3]
         half = tf.cast(0.5, rdtype)
         position = half*(bbox_min + bbox_max)
